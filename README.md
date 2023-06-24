@@ -16,7 +16,7 @@ Scripts\deactivate
 		kaptaan/
 		pahari/
 
-images should be of .ppg extension
+images should be of .jpg extension
 
 - To test a single image, copy it in root directory with name image.jpg
 
