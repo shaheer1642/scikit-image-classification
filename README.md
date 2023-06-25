@@ -23,3 +23,5 @@ Note: images should be of .jpg extension
 - To test a single image, copy it in root directory with name `image.jpg`
 - Delete `rf_model.pkl` to retrain the model
 - Delete `processed_data` to reprocess the dataset
+
+- To run flask server, type command `python -m flask --app app run`
