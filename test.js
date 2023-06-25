@@ -9,7 +9,7 @@ fetch('https://w7.pngwing.com/pngs/817/902/png-transparent-google-logo-google-do
 
     console.log(base64String)
     
-    fetch('http://192.168.18.25:5000/predict', {
+    fetch('https://maize-detection-api.up.railway.app/predict', {
         method: 'POST',
         headers: {
         'Accept': 'application/json',
