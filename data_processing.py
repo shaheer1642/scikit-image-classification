@@ -11,14 +11,14 @@ if os.path.exists(output_path + "\\x_processed.npy") and os.path.exists(output_p
     y = np.load(os.path.join(output_path, "y_processed.npy"))
 else:
     dataset_path = os.path.join(os.getcwd(), "dataset")
-    batch_size = 128  # Adjust the batch size as per your memory constraints
+    batch_size = 128
 
     datagen = ImageDataGenerator(rescale=1./255)
 
     # Use flow_from_directory to load images in batches
     data_generator = datagen.flow_from_directory(
         dataset_path,
-        target_size=(224, 224),  # Adjust the target size according to your needs
+        target_size=(224, 224),
         batch_size=batch_size,
         class_mode='binary',
         shuffle=True
@@ -31,16 +31,12 @@ else:
     # Iterate over the batches and accumulate images and labels
     steps_per_epoch = len(data_generator)
     for i, (images, labels) in enumerate(data_generator):
-        # Process the batch of images and labels as needed
-        # Your code for processing the batch goes here
-        # You can access the images as 'images' and labels as 'labels'
-        # Do not load all the batches into memory at once
 
         # Append the images and labels to the respective lists
         x.append(images)
         y.append(labels)
 
-        # Example processing: Print the shape of the batch
+        # Print the shape of the batch
         print("Batch Shape:", images.shape)
 
         # Stop the loop after processing all batches

@@ -12,7 +12,7 @@ from functions import label_func
 # Make predictions on the test set
 predictions = model.predict(X_test)
 
-# Evaluate the accuracy of the classifier
+# Evaluate the accuracy of the classifier on test set
 accuracy = accuracy_score(y_test, predictions)
 
 print("\nAccuracy:", accuracy)
@@ -20,7 +20,7 @@ print("\ntest-set:", [label_func(el) for el in y_test.tolist()])
 print("\npredictions:", [label_func(el) for el in predictions.tolist()])
 
 # Load and preprocess a single image
-image_path = os.path.join(os.getcwd(), "image.jpg")  # Replace "path_to_single_image.jpg" with the path to your single image
+image_path = os.path.join(os.getcwd(), "image.jpg")  # Get the image.jpg from root dir
 image = Image.open(image_path).convert("RGB")
 image = image.resize((224, 224))  # Adjust the size to match the input size expected by the model
 image_array = np.array(image)
