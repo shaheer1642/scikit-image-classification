@@ -9,9 +9,6 @@ from flask import Flask, request, jsonify
 # user-defined libraries
 from functions import label_func
 
-# loading pre-trained model
-model_filename = "rf_model.pkl"
-model = joblib.load(model_filename)
 
 app = Flask(__name__)
 
@@ -32,6 +29,10 @@ def imageDetectionBase64(image):
     image_array = np.expand_dims(image_array, axis=0) # Reshape the image array to match the input shape expected by the model
     image_array = image_array.reshape(image_array.shape[0], -1) # Flatten the image array
 
+    # loading pre-trained model
+    model_filename = "rf_model.pkl"
+    model = joblib.load(model_filename)
+    
     # Make predictions on the image
     predictions = model.predict(image_array)
 
